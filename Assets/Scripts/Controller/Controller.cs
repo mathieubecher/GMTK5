@@ -20,7 +20,7 @@ public class Controller : MonoBehaviour
     }
     #endregion
     
-    [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public Vector3 moveInput;
     
     public delegate void ClickEvent();
     public static event ClickEvent OnClick;
@@ -39,6 +39,7 @@ public class Controller : MonoBehaviour
     }
     public void ReadMoveInput(InputAction.CallbackContext _context)
     {
-        moveInput = _context.ReadValue<Vector2>();
+        Vector2 input = _context.ReadValue<Vector2>();
+        moveInput = new Vector3(input.x, 0.0f, input.y);
     }
 }

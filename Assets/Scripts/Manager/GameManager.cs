@@ -20,13 +20,14 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    private bool m_isGameRunning = true;
+    public bool isGameRunning => m_isGameRunning;
     public void Awake()
     {
         if(FindObjectsOfType<GameManager>().Length > 1) Destroy(this);
         else DontDestroyOnLoad(this.gameObject);
     }
 
-    public bool isGameRunning => true;
 
     public void StartGame()
     {
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
     
     public void PauseGame()
     {
-        
+        m_isGameRunning = false;
     }
 
     public void ResumeGame()

@@ -10,7 +10,7 @@ public class FrameManager : MonoBehaviour
     [SerializeField] private float m_mettersPerFrame = 2.0f;
     [SerializeField] private float m_maxPositiveDistance = 10.0f;
     [SerializeField] private int m_maxFrame = 10;
-    [SerializeField] private GameObject m_frameObject;
+    [SerializeField] private List<GameObject> m_frameObjects;
     
     
     private List<Transform> m_frames;
@@ -24,9 +24,7 @@ public class FrameManager : MonoBehaviour
     public void Update()
     {
         if (GameManager.instance.isGameRunning)
-        {
             UpdateFrames();
-        }
     }
 
     private void UpdateFrames()
@@ -34,10 +32,13 @@ public class FrameManager : MonoBehaviour
         m_frames.RemoveAll(frame => frame == null);
         
         float deltaPos = Time.deltaTime * m_speed;
+
+        int i = (int)math.floor((m_distance + deltaPos) / m_mettersPerFrame);
         
-        if (math.floor((m_distance + deltaPos) / m_mettersPerFrame) > math.floor(m_distance / m_mettersPerFrame))
+        if (i > math.floor(m_distance / m_mettersPerFrame))
         {
-            GameObject frame = Instantiate(m_frameObject, Vector3.down * (m_maxFrame * m_mettersPerFrame), quaternion.identity);
+            GameObject frame = Instantiate(m_frameObjects[i % m_frameObjects.Count], Vector3.down * (m_maxFrame * m_mettersPerFrame), quaternion.identity);
+            frame.transform.SetParent(transform);
             m_frames.Add(frame.transform);
         }
         
