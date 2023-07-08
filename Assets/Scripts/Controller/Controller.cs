@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
+    #region Singleton
     private static Controller m_instance;
     public static Controller instance
     {
@@ -17,6 +18,9 @@ public class Controller : MonoBehaviour
             return m_instance;
         }
     }
+    #endregion
+    
+    [HideInInspector] public Vector2 moveInput;
     
     public delegate void ClickEvent();
     public static event ClickEvent OnClick;
@@ -32,5 +36,9 @@ public class Controller : MonoBehaviour
         {
             OnRelease?.Invoke();
         }
+    }
+    public void ReadMoveInput(InputAction.CallbackContext _context)
+    {
+        moveInput = _context.ReadValue<Vector2>();
     }
 }
