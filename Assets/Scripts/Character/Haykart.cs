@@ -32,6 +32,7 @@ public class Haykart : MonoBehaviour
     private void OnCollisionEnter(Collision _other)
     {
         ResetMovement();
+        m_rigidbody.isKinematic = true;
         Vector3 position = transform.position;
         position.y = _other.transform.parent.position.y + 0.1f;
         transform.position = position;
