@@ -172,7 +172,7 @@ Transform:
   - {fileID: 8185717732654867686}
   - {fileID: 6485773818384424840}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1867932790634082633
 MonoBehaviour:
@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 4
+  m_distance: {x: 6.5, y: 3.75}
 --- !u!54 &5246008342819760297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!95 &518586980761845858
 Animator:

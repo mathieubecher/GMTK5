@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Haykart : MonoBehaviour
 {
+    const float TOLERANCE = 0.01f;
+    
     [SerializeField] private float m_speed = 5.0f;
+    [SerializeField] private Vector2 m_distance;
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
@@ -29,7 +34,22 @@ public class Haykart : MonoBehaviour
     private void ReadMovement()
     {
         Vector3 moveInput = Controller.instance.moveInput;
+
+        Vector3 desiredVelocity = moveInput * m_speed;
+
+        if (math.abs(transform.position.x + desiredVelocity.x * Time.deltaTime) > m_distance.x - 1.0f
+            && Math.Abs(math.sign(transform.position.x) - math.sign(desiredVelocity.x)) <= TOLERANCE)
+        {
+            moveInput.x = 0.0f;
+        }
+        if (math.abs(transform.position.z + desiredVelocity.z * Time.deltaTime) > m_distance.y - 1.0f
+            && Math.Abs(math.sign(transform.position.z) - math.sign(desiredVelocity.z)) <= TOLERANCE)
+        {
+            moveInput.z = 0.0f;
+        }
         m_rigidbody.velocity = moveInput * m_speed;
+        
+        moveInput.Normalize();
         m_animator.SetFloat("x", moveInput.x);
         m_animator.SetFloat("y", moveInput.z);
     }
