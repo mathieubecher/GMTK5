@@ -15,8 +15,7 @@ public class Haykart : MonoBehaviour
         
     private void Update()
     {
-        if (GameManager.instance.isGameRunning)
-            ReadMovement();
+        if (GameManager.instance.isGameRunning) ReadMovement();
         else ResetMovement();
     }
 
@@ -32,7 +31,11 @@ public class Haykart : MonoBehaviour
     
     private void OnCollisionEnter(Collision _other)
     {
-        Debug.Log("BOOM " + _other.transform.gameObject.name);
+        ResetMovement();
+        Vector3 position = transform.position;
+        position.y = _other.transform.parent.position.y + 0.1f;
+        transform.position = position;
+        
         GameManager.instance.PauseGame();
     }
 }
