@@ -26,6 +26,9 @@ public class Controller : MonoBehaviour
     public static event ClickEvent OnClick;
     public static event ClickEvent OnRelease;
     
+    public delegate void SimpleEvent();
+    public static event SimpleEvent OnSpace;
+    
     public void ReadClickInput(InputAction.CallbackContext _context)
     {
         if (_context.performed)
@@ -41,5 +44,13 @@ public class Controller : MonoBehaviour
     {
         Vector2 input = _context.ReadValue<Vector2>();
         moveInput = new Vector3(input.x, 0.0f, input.y);
+    }
+    
+    public void ReadSpaceInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            OnSpace?.Invoke();
+        }
     }
 }

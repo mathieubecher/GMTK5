@@ -19,13 +19,7 @@ public class FrameManager : MonoBehaviour
 
     public void Awake()
     {
-        m_frames = new List<Transform>();
-        for (int i = m_spaceAtBegining; i <= m_maxFrame; ++i)
-        {
-            GameObject frame = Instantiate(m_frameObjects[i % m_frameObjects.Count], Vector3.down * (i * m_mettersPerFrame), quaternion.identity);
-            frame.transform.SetParent(transform);
-            m_frames.Add(frame.transform);
-        }
+        GameManager.OnGameStart += GameStart;
     }
 
     public void Update()
@@ -56,4 +50,25 @@ public class FrameManager : MonoBehaviour
         }
         m_distance += deltaPos;
     }
+
+    private void GameStart()
+    {
+        m_distance = 0.0f;
+        if (m_frames != null)
+        {
+            foreach (var frame in m_frames)
+            {
+                Destroy(frame.gameObject);
+            }
+        }
+        
+        m_frames = new List<Transform>();
+        for (int i = m_spaceAtBegining; i <= m_maxFrame; ++i)
+        {
+            GameObject frame = Instantiate(m_frameObjects[i % m_frameObjects.Count], Vector3.down * (i * m_mettersPerFrame), quaternion.identity);
+            frame.transform.SetParent(transform);
+            m_frames.Add(frame.transform);
+        }
+    }
+
 }

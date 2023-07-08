@@ -18,14 +18,15 @@ public class Haykart : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody>();
         m_animator = GetComponent<Animator>();
+        GameManager.OnGameStart += GameStart;
     }
-        
+    
     private void Update()
     {
         if (GameManager.instance.isGameRunning) ReadMovement();
         else ResetMovement();
     }
-
+    
     private void ResetMovement()
     {
         m_rigidbody.velocity = Vector3.zero;
@@ -72,5 +73,12 @@ public class Haykart : MonoBehaviour
         m_animator.SetFloat("x", 0.0f);
         m_animator.SetFloat("y", 0.0f);
         m_animator.SetBool("dead", true);
+    }
+
+    private void GameStart()
+    {
+        m_rigidbody.isKinematic = false;
+        m_animator.SetBool("dead", false);
+        
     }
 }
