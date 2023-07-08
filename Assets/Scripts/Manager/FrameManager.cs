@@ -10,6 +10,7 @@ public class FrameManager : MonoBehaviour
     [SerializeField] private float m_mettersPerFrame = 2.0f;
     [SerializeField] private float m_maxPositiveDistance = 10.0f;
     [SerializeField] private int m_maxFrame = 10;
+    [SerializeField] private int m_spaceAtBegining = 2;
     [SerializeField] private List<GameObject> m_frameObjects;
     
     
@@ -19,6 +20,12 @@ public class FrameManager : MonoBehaviour
     public void Awake()
     {
         m_frames = new List<Transform>();
+        for (int i = m_spaceAtBegining; i <= m_maxFrame; ++i)
+        {
+            GameObject frame = Instantiate(m_frameObjects[i % m_frameObjects.Count], Vector3.down * (i * m_mettersPerFrame), quaternion.identity);
+            frame.transform.SetParent(transform);
+            m_frames.Add(frame.transform);
+        }
     }
 
     public void Update()
@@ -37,11 +44,10 @@ public class FrameManager : MonoBehaviour
         
         if (i > math.floor(m_distance / m_mettersPerFrame))
         {
-            GameObject frame = Instantiate(m_frameObjects[i % m_frameObjects.Count], Vector3.down * (m_maxFrame * m_mettersPerFrame), quaternion.identity);
+            GameObject frame = Instantiate(m_frameObjects[(i + m_maxFrame) % m_frameObjects.Count], Vector3.down * (m_maxFrame * m_mettersPerFrame), quaternion.identity);
             frame.transform.SetParent(transform);
             m_frames.Add(frame.transform);
         }
-        
         
         foreach (var frame in m_frames)
         {

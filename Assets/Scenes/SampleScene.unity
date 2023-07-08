@@ -444,6 +444,7 @@ MonoBehaviour:
   m_mettersPerFrame: 40
   m_maxPositiveDistance: 5
   m_maxFrame: 5
+  m_spaceAtBegining: 2
   m_frameObjects:
   - {fileID: 6354077404998044974, guid: a8d6cce8a44477944a16152a0344dbb0, type: 3}
   - {fileID: 1168248676922755350, guid: ce54948b2b8a27b44a1c775bf2b9d7da, type: 3}
