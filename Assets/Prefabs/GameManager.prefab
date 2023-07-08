@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f874a8b36c226c14fbb6a4dbbe136c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInput: {x: 0, y: 0}
+  moveInput: {x: 0, y: 0, z: 0}
 --- !u!114 &5542718097376180936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +103,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 422ab056-2f83-41c1-bdd3-94ed875de793
     m_ActionName: Actions/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3899414246815357031}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: ReadSpaceInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b737abf0-2c93-42d4-99c5-bfd8bcde8601
+    m_ActionName: Actions/Space[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Actions
@@ -139,7 +155,7 @@ Transform:
   m_Children:
   - {fileID: 6457621701383709167}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7755260961642275709
 MonoBehaviour:
