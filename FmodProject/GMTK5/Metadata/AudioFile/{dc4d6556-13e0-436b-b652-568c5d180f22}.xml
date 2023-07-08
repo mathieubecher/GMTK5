@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dc4d6556-13e0-436b-b652-568c5d180f22}">
+		<property name="assetPath">
+			<value>HS_MainTitle.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>135.87741666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b8633ef-d9ae-440c-a4b6-ff74e731bdc3}</destination>
+		</relationship>
+	</object>
+</objects>
