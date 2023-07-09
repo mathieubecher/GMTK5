@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static event SimpleEvent OnGameStart;
     public static event SimpleEvent OnGamePause;
     public static event SimpleEvent OnGameLoose;
+    public static event SimpleEvent OnGameWin;
     public static event SimpleEvent OnResumeGame;
     
     
@@ -60,6 +61,12 @@ public class GameManager : MonoBehaviour
     public void LooseGame()
     {
         OnGameLoose?.Invoke();
+        m_isGameRunning = false;
+    }
+
+    public void WinGame()
+    {
+        OnGameWin?.Invoke();
         m_isGameRunning = false;
     }
 
