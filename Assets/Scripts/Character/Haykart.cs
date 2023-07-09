@@ -91,6 +91,7 @@ public class Haykart : MonoBehaviour
             if (m_currentLife > 0 && _other.gameObject.layer != LayerMask.NameToLayer("Loose"))
             {
                 m_currentLife--;
+                m_chain = 0;
                 OnHitObstacle?.Invoke(m_currentLife);
                 return;
             }

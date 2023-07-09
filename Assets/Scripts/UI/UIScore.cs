@@ -21,9 +21,9 @@ public class UIScore : MonoBehaviour
         Haykart.OnAddScore -= AddScore;
     }
 
-    private void AddScore(int _currentscore, int _scoreAdded)
+    private void AddScore(int _currentScore, int _scoreAdded)
     {
-        m_text.text = "Score : " + (_currentscore + _scoreAdded);
+        m_text.text = "Score : " + (_currentScore + _scoreAdded);
     }
 
     private void ResetScore()
