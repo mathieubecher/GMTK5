@@ -255,7 +255,7 @@ public class FrameManager : MonoBehaviour
 
         float distance = _currDistance;
         ObjectsPerDistance objectsPerDistance = _objects.FindLast(x => distance >= x.distance);
-        while (gen == _lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
+        while (gen == _lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0 || gen >= objectsPerDistance.objects.Count))
         {
             gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
@@ -274,11 +274,11 @@ public class FrameManager : MonoBehaviour
     {
         ObjectsPerDistance objectsPerDistance = m_frameObjects.FindLast(x => _dist + m_distance >= x.distance);
         int gen = m_lastGen;
-        while (gen == m_lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
+        while (gen == m_lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0 || gen >= objectsPerDistance.objects.Count))
         {
             gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
-        m_lastGen = gen;   
+        m_lastGen = gen;
         GameObject frameInstance = Instantiate(objectsPerDistance.objects[gen], Vector3.down * _dist, quaternion.identity);
         Frame frame = frameInstance.GetComponent<Frame>();
         frame.transform.SetParent(m_framesParent);
