@@ -28,8 +28,8 @@ public class UILife : MonoBehaviour
         m_text.text = "Life : 2";
     }
     
-    private void OnLifeChange(int _remaininglife)
+    private void OnLifeChange(int _remainingLife)
     {
-        m_text.text = "Life : " + _remaininglife;
+        m_text.text = "Life : " + _remainingLife;
     }
 }

@@ -93,7 +93,7 @@ public class FrameManager : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.instance.isGameRunning)
+        if (GameManager.instance.isGameRunning && Haykart.fall)
         {
             UpdateWalls();
             UpdateFrames();
@@ -103,9 +103,9 @@ public class FrameManager : MonoBehaviour
     
     public Ring GetNextRing()
     { 
-        var circle = m_circles.Find(x => x.transform.position.y < 5.0f);
+        var circle = m_circles.Find(x => x != null && x.transform.position.y < 5.0f);
         
-        return !circle? null : circle.GetComponent<Ring>();
+        return !circle ? null : circle.GetComponent<Ring>();
     }
 
     private void GameStart()
@@ -163,6 +163,8 @@ public class FrameManager : MonoBehaviour
             }
         }
         m_walls = new List<Transform>();
+
+        UpdateWalls();
     }
     
     private void UpdateFrames()

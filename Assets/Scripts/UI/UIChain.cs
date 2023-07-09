@@ -15,6 +15,7 @@ public class UIChain : MonoBehaviour
         GameManager.OnGameStart += ResetChain;
         Haykart.OnMissCircle += MissCircle;
         Haykart.OnEnterCircle += EnterCircle;
+        Haykart.OnHitObstacle += HitObstacle;
     }
 
     private void OnDestroy()
@@ -22,8 +23,13 @@ public class UIChain : MonoBehaviour
         GameManager.OnGameStart -= ResetChain;
         Haykart.OnMissCircle -= MissCircle;
         Haykart.OnEnterCircle -= EnterCircle;
+        Haykart.OnHitObstacle -= HitObstacle;
     }
     
+    private void HitObstacle(int _remainingLife)
+    {
+        ResetChain();
+    }
     private void ResetChain()
     {
         m_chain = 0;
