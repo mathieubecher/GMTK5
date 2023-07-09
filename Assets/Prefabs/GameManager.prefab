@@ -1617,13 +1617,13 @@ PrefabInstance:
       value: RESTART
       objectReference: {fileID: 0}
     - target: {fileID: 152355168188147074, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 152355168188147074, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: -196392576326020864, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
+    - target: {fileID: 152355168188147074, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 401871339111386607, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -1674,7 +1674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3024081453275662323, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200.20999
+      value: 188.775
       objectReference: {fileID: 0}
     - target: {fileID: 3024081453275662323, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
       propertyPath: m_AnchoredPosition.y
