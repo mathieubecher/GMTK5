@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class Haykart : MonoBehaviour
 {
-    const float TOLERANCE = 0.01f;
+    public delegate void HitObstacleDelegate(int _remainingLife);
+    public static event HitObstacleDelegate OnHitObstacle;
     
+    const float TOLERANCE = 0.01f;
+
+    [SerializeField] private int m_lifeAtStart = 2;
+    [SerializeField] private int m_maxLife = 6;
     [SerializeField] private float m_speed = 5.0f;
     [SerializeField] private Vector2 m_distance;
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
-
+    private int m_currentLife;
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -65,6 +70,12 @@ public class Haykart : MonoBehaviour
         }
         else
         {
+            if (m_currentLife > 0)
+            {
+                m_currentLife--;
+                OnHitObstacle?.Invoke(m_currentLife);
+                return;
+            }
             StopHaykart();
             m_animator.SetBool("dead", true);
             GameManager.instance.LooseGame();
@@ -85,6 +96,7 @@ public class Haykart : MonoBehaviour
         m_rigidbody.isKinematic = false;
         m_animator.SetBool("dead", false);
         m_animator.SetBool("win", false);
-        
+        m_currentLife = m_lifeAtStart;
+
     }
 }
