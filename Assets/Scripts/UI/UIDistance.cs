@@ -5,15 +5,31 @@ using UnityEngine;
 
 public class UIDistance : MonoBehaviour
 {
-    private TextMeshProUGUI m_text;
-    
-    void Awake()
+    public TextMeshProUGUI m_text;
+    private bool DisplayImperial;
+
+
+    void Start()
     {
-        m_text = GetComponent<TextMeshProUGUI>();
+        GameObject MetricsInfo = GameObject.Find("MetricsInformation");
+        if (MetricsInfo.GetComponent<UI_MetricsInformation>().IsImperial == true)
+        {
+            DisplayImperial = true;
+        } else
+        {
+            DisplayImperial = false;
+        }
     }
     
     void Update()
     {
-        m_text.text = "Distance : " + FrameManager.instance.distance.ToString("#.00") + " meters";
+        if (DisplayImperial == false)
+        {
+            m_text.text = FrameManager.instance.distance.ToString("#") + " m";
+        } else
+        {
+            m_text.text = (FrameManager.instance.distance / 0.3048f).ToString("#") + " ft";
+        }
+        
     }
 }
