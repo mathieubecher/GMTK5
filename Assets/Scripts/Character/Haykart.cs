@@ -97,6 +97,7 @@ public class Haykart : MonoBehaviour
                 m_chain = 0;
                 m_foin.localScale = new Vector3(1.0f, 1.0f, m_foinScalePerLife[m_currentLife]);
                 OnHitObstacle?.Invoke(m_currentLife);
+                m_animator.SetTrigger("Hit");
                 return;
             }
             StopHaykart();
