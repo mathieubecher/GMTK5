@@ -1721,7 +1721,7 @@ Transform:
   - {fileID: 8185717732654867686}
   - {fileID: 7993053785228222577}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1867932790634082633
 MonoBehaviour:
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 4
-  m_distance: {x: 6.5, y: 3.75}
+  m_distance: {x: 6.475, y: 3.64}
 --- !u!54 &5246008342819760297
 Rigidbody:
   m_ObjectHideFlags: 0
