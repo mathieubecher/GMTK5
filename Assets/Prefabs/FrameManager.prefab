@@ -159,7 +159,7 @@ MonoBehaviour:
     - {fileID: 4540313511949488688, guid: 841b9d850d6af0d49814e92b4b6f6da4, type: 3}
   m_distanceToReach: 3000
   m_spaceAtEnd: 120
-  m_endObject: {fileID: 9078690204027510993, guid: 5e2980f0cf08b5b42963f655695363ad, type: 3}
+  m_endObject: {fileID: 7871811058311512862, guid: 5e2980f0cf08b5b42963f655695363ad, type: 3}
   m_framesParent: {fileID: 5650853479566578872}
   m_upWallsParent: {fileID: 3003281933488258107}
   m_downWallsParent: {fileID: 1042120257557899820}

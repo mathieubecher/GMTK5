@@ -89,6 +89,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mute"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ae85b92-f1c5-423a-80bb-e7c2a4262d1f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -531,6 +540,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb8fa07b-fb56-49c0-badd-30144230cf7c"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Mute"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -574,6 +594,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Actions_AnyKeyboardInput = m_Actions.FindAction("AnyKeyboardInput", throwIfNotFound: true);
         m_Actions_AnyPsInput = m_Actions.FindAction("AnyPsInput", throwIfNotFound: true);
         m_Actions_Back = m_Actions.FindAction("Back", throwIfNotFound: true);
+        m_Actions_Mute = m_Actions.FindAction("Mute", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -642,6 +663,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_AnyKeyboardInput;
     private readonly InputAction m_Actions_AnyPsInput;
     private readonly InputAction m_Actions_Back;
+    private readonly InputAction m_Actions_Mute;
     public struct ActionsActions
     {
         private @InputActions m_Wrapper;
@@ -653,6 +675,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @AnyKeyboardInput => m_Wrapper.m_Actions_AnyKeyboardInput;
         public InputAction @AnyPsInput => m_Wrapper.m_Actions_AnyPsInput;
         public InputAction @Back => m_Wrapper.m_Actions_Back;
+        public InputAction @Mute => m_Wrapper.m_Actions_Mute;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -683,6 +706,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
+            @Mute.started += instance.OnMute;
+            @Mute.performed += instance.OnMute;
+            @Mute.canceled += instance.OnMute;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -708,6 +734,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
+            @Mute.started -= instance.OnMute;
+            @Mute.performed -= instance.OnMute;
+            @Mute.canceled -= instance.OnMute;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -752,5 +781,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnAnyKeyboardInput(InputAction.CallbackContext context);
         void OnAnyPsInput(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+        void OnMute(InputAction.CallbackContext context);
     }
 }
