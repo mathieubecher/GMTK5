@@ -30,6 +30,6 @@ public class UILife : MonoBehaviour
     
     private void OnLifeChange(int _remaininglife)
     {
-        m_text.text = "Score : " + _remaininglife;
+        m_text.text = "Life : " + _remaininglife;
     }
 }

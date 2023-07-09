@@ -116,12 +116,13 @@ public class Haykart : MonoBehaviour
                 ring.success = true;
                 m_chain++;
                 
-                OnAddScore?.Invoke(m_score, 5 * m_chain);
-                if (math.floor(m_score + 5 * m_chain) > math.floor(m_score / 100.0) && m_currentLife < m_maxLife)
+                if (math.floor((m_score + 5 * m_chain) / 100.0) > math.floor(m_score / 100.0) && m_currentLife < m_maxLife)
                 {
                     m_currentLife++;
                     OnAddLife?.Invoke(m_currentLife);
                 }
+                
+                OnAddScore?.Invoke(m_score, 5 * m_chain);
                 m_score += 5 * m_chain;
                 
             }
