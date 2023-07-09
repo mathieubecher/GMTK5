@@ -23,12 +23,12 @@ public class UIScore : MonoBehaviour
 
     private void AddScore(int _currentScore, int _scoreAdded)
     {
-        m_text.text = "Score : " + (_currentScore + _scoreAdded);
+        m_text.text = "" + (_currentScore + _scoreAdded);
     }
 
     private void ResetScore()
     {
-        m_text.text = "Score : 0";
+        m_text.text = "0";
     }
 
 }
