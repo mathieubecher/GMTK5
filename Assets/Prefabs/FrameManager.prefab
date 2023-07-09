@@ -119,7 +119,7 @@ MonoBehaviour:
   m_frameObjects:
   - distance: 0
     objects:
-    - {fileID: 6354077404998044974, guid: a8d6cce8a44477944a16152a0344dbb0, type: 3}
+    - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
   - distance: 500
     objects:
     - {fileID: 1168248676922755350, guid: ce54948b2b8a27b44a1c775bf2b9d7da, type: 3}

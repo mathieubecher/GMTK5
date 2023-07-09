@@ -38,6 +38,7 @@ public class Haykart : MonoBehaviour
     private int m_currentLife;
     private int m_score;
     private int m_chain;
+    private bool m_invulnerable = false;
     private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody>();
@@ -92,7 +93,7 @@ public class Haykart : MonoBehaviour
             m_animator.SetBool("win", true);
             GameManager.instance.WinGame();
         }
-        else
+        else if (!m_invulnerable)
         {
             if (m_currentLife > 0 && _other.gameObject.layer != LayerMask.NameToLayer("Loose"))
             {
@@ -101,6 +102,8 @@ public class Haykart : MonoBehaviour
                 m_foin.localScale = new Vector3(1.0f, 1.0f, m_foinScalePerLife[m_currentLife]);
                 OnHitObstacle?.Invoke(m_currentLife);
                 m_animator.SetTrigger("Hit");
+                m_invulnerable = true;
+                StartCoroutine(InvulnerableCoroutine());
                 return;
             }
             StopHaykart();
@@ -108,6 +111,12 @@ public class Haykart : MonoBehaviour
             GameManager.instance.LooseGame();
         }
         
+    }
+
+    private IEnumerator InvulnerableCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        m_invulnerable = false;
     }
 
     private void DetectRing()
