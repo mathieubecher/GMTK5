@@ -35,6 +35,7 @@ public class MusicManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
             m_musicVolumeParam = musicVolumeParam;
+            SetVolume(0f);
         }
     }
 
@@ -91,6 +92,6 @@ public class MusicManager : MonoBehaviour
     public static void SetVolume(float _vol)
     {
         if (m_musicVolumeParam != "")
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(m_musicVolumeParam, 1);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(m_musicVolumeParam, _vol);
     }
 }
