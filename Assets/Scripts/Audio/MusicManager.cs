@@ -21,6 +21,8 @@ public class MusicManager : MonoBehaviour
 
     [FMODUnity.ParamRef]
     public string mainMusicStateParam;
+    [FMODUnity.ParamRef] public string musicVolumeParam;
+    private static string m_musicVolumeParam;
 
     public static MusicManager instance;
 
@@ -32,6 +34,7 @@ public class MusicManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
             instance = this;
+            m_musicVolumeParam = musicVolumeParam;
         }
     }
 
@@ -83,5 +86,11 @@ public class MusicManager : MonoBehaviour
             titleMusicInstanceWasCreated = true;
         }
         titleMusicInstance.start();
+    }
+
+    public static void OnMusicVolumeChange(float _vol)
+    {
+        if (m_musicVolumeParam != "")
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(m_musicVolumeParam, 1);
     }
 }
