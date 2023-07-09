@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_assassinPos: {fileID: 1430999097801315875}
+  m_distance: {x: 6.475, y: 3.64}
 --- !u!1 &3814466465418571019
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +305,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &7174471159129897481
 GameObject:
   m_ObjectHideFlags: 0
