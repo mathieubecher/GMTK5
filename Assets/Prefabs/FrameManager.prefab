@@ -97,7 +97,7 @@ Transform:
   - {fileID: 3242703776964573588}
   - {fileID: 6913201633558810310}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1878153687172697568
 MonoBehaviour:
@@ -122,6 +122,9 @@ MonoBehaviour:
     - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
     - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
     - {fileID: 6891655609741249165, guid: 9aca4e5d5a79e3444a7929a501c8b5eb, type: 3}
+  - distance: 470
+    objects:
+    - {fileID: 3377876131313533572, guid: e7369214a3d81994fbbb1c73b360633d, type: 3}
   - distance: 500
     objects:
     - {fileID: 1168248676922755350, guid: 7998c0a6d183a054199acde2830f26ab, type: 3}
@@ -134,10 +137,10 @@ MonoBehaviour:
   m_circleObject: {fileID: 4989634216531816407, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
   m_facadeDistance: {x: 6.475, y: 3.64}
   m_maxPositiveFacadeDistance: 20
-  m_leftStartDistance: 500
-  m_rightStartDistance: 500
+  m_leftStartDistance: 480
+  m_rightStartDistance: 480
   m_downStartDistance: -20
-  m_upStartDistance: 500
+  m_upStartDistance: 480
   m_leftFacadeObjects:
   - distance: -1000
     objects:
@@ -154,7 +157,7 @@ MonoBehaviour:
   - distance: -1000
     objects:
     - {fileID: 4540313511949488688, guid: 841b9d850d6af0d49814e92b4b6f6da4, type: 3}
-  m_distanceToReach: 1500
+  m_distanceToReach: 3000
   m_spaceAtEnd: 120
   m_endObject: {fileID: 9078690204027510993, guid: 5e2980f0cf08b5b42963f655695363ad, type: 3}
   m_framesParent: {fileID: 5650853479566578872}
