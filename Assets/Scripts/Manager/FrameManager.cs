@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class FrameManager : MonoBehaviour
 {
     public delegate void SimpleEvent();
-    public static event SimpleEvent SixSecondBeforeBoumBoum;
+    public static event SimpleEvent SevenSecondBeforeBoumBoum;
     #region Singleton
     private static FrameManager m_instance;
     public static FrameManager instance
@@ -103,10 +103,10 @@ public class FrameManager : MonoBehaviour
             
             float deltaPos = Time.deltaTime * m_speed;
 
-            if ((m_distanceToReach - m_distance) / m_speed > 6.0f &&
-                (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.0f)
+            if ((m_distanceToReach - m_distance) / m_speed > 6.5f &&
+                (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.5f)
             {
-                SixSecondBeforeBoumBoum?.Invoke();
+                SevenSecondBeforeBoumBoum?.Invoke();
             }
             
             m_distance += deltaPos;
