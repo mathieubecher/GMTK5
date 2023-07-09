@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -6,6 +7,12 @@ using Random = UnityEngine.Random;
 
 public class FrameManager : MonoBehaviour
 {
+
+    [Serializable] struct ObjectsPerDistance
+    {
+        public float distance;
+        public List<GameObject> objects;
+    }
     
     [SerializeField] private float m_speed = 5.0f;
     
@@ -15,7 +22,7 @@ public class FrameManager : MonoBehaviour
     [SerializeField] private float m_mettersPerFrame = 2.0f;
     [SerializeField] private float m_maxPositiveDistance = 10.0f;
     [Space]
-    [SerializeField] private List<GameObject> m_frameObjects;
+    [SerializeField] private List<ObjectsPerDistance> m_frameObjects;
 
     [Header("Facade")]
     [SerializeField] private Vector2 m_facadeDistance;
@@ -25,8 +32,10 @@ public class FrameManager : MonoBehaviour
     [SerializeField] private float m_downStartDistance = 0.0f;
     [SerializeField] private float m_upStartDistance = 0.0f;
     [Space]
-    [SerializeField] private List<GameObject> m_sideFacadeObjects;
-    [SerializeField] private List<GameObject> m_frontFacadeObjects;
+    [SerializeField] private List<ObjectsPerDistance> m_leftFacadeObjects;
+    [SerializeField] private List<ObjectsPerDistance> m_rightFacadeObjects;
+    [SerializeField] private List<ObjectsPerDistance> m_upFacadeObjects;
+    [SerializeField] private List<ObjectsPerDistance> m_downFacadeObjects;
 
     [Header("End")] 
     [SerializeField] private float m_distanceToReach = 10.0f;
@@ -145,73 +154,25 @@ public class FrameManager : MonoBehaviour
         // FRONT
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_upCurrDistance)
         {
-            int gen = m_lastUpGen;
-            while (gen == m_lastUpGen && (m_frontFacadeObjects.Count > 1 || gen < 0))
-            {
-                gen = Random.Range(0, m_frontFacadeObjects.Count);
-            }
-            m_lastUpGen = gen;
-            
-            GameObject facadeObject = m_frontFacadeObjects[gen];
-            m_upCurrDistance += facadeObject.GetComponent<Wall>().height;
-            
-            GameObject facade = Instantiate(facadeObject, 
-                Vector3.down * (m_upCurrDistance - m_distance) + Vector3.forward * m_facadeDistance.y, quaternion.identity);
-            facade.transform.SetParent(m_upWallsParent);
-            m_walls.Add(facade.transform);
+            GenerateWall(ref m_lastUpGen, ref m_upCurrDistance, m_upFacadeObjects, 
+                Vector3.forward * m_facadeDistance.y, Quaternion.identity);
         }
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_downCurrDistance)
         {
-            int gen = m_lastDownGen;
-            while (gen == m_lastDownGen && (m_frontFacadeObjects.Count > 1 || gen < 0))
-            {
-                gen = Random.Range(0, m_frontFacadeObjects.Count);
-            }
-            m_lastDownGen = gen;
-
-            GameObject facadeObject = m_frontFacadeObjects[gen];
-            m_downCurrDistance += facadeObject.GetComponent<Wall>().height;
-            
-            GameObject facade = Instantiate(facadeObject, 
-                Vector3.down * (m_downCurrDistance - m_distance) + Vector3.back * m_facadeDistance.y, Quaternion.Euler(0.0f, 180.0f, 0.0f));
-            facade.transform.SetParent(m_downWallsParent);
-            m_walls.Add(facade.transform);
+            GenerateWall(ref m_lastDownGen, ref m_downCurrDistance, m_downFacadeObjects,
+                Vector3.back * m_facadeDistance.y, Quaternion.Euler(0.0f, 180.0f, 0.0f));
         }
         
         // SIDE
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_leftCurrDistance)
         {
-            int gen = m_lastLeftGen;
-            while (gen == m_lastLeftGen && (m_sideFacadeObjects.Count > 1 || gen < 0))
-            {
-                gen = Random.Range(0, m_frontFacadeObjects.Count);
-            }
-            m_lastLeftGen = gen;
-
-            GameObject facadeObject = m_sideFacadeObjects[gen];
-            m_leftCurrDistance += facadeObject.GetComponent<Wall>().height;
-            
-            GameObject facade = Instantiate(facadeObject, 
-                Vector3.down * (m_leftCurrDistance - m_distance) + Vector3.left * m_facadeDistance.x, Quaternion.Euler(0.0f, 180.0f, 0.0f));
-            facade.transform.SetParent(m_leftWallsParent);
-            m_walls.Add(facade.transform);
+            GenerateWall(ref m_lastLeftGen, ref m_leftCurrDistance, m_leftFacadeObjects,
+                Vector3.left * m_facadeDistance.x, Quaternion.Euler(0.0f, 180.0f, 0.0f));
         }
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_rightCurrDistance)
         {
-            int gen = m_lastRightGen;
-            while (gen == m_lastRightGen && (m_sideFacadeObjects.Count > 1 || gen < 0))
-            {
-                gen = Random.Range(0, m_frontFacadeObjects.Count);
-            }
-            m_lastRightGen = gen;
-
-            GameObject facadeObject = m_sideFacadeObjects[gen];
-            m_rightCurrDistance += facadeObject.GetComponent<Wall>().height;
-            
-            GameObject facade = Instantiate(facadeObject, 
-                Vector3.down * (m_rightCurrDistance - m_distance) + Vector3.right * m_facadeDistance.x, quaternion.identity);
-            facade.transform.SetParent(m_rightWallsParent);
-            m_walls.Add(facade.transform);
+            GenerateWall(ref m_lastRightGen, ref m_rightCurrDistance, m_rightFacadeObjects,
+                Vector3.right * m_facadeDistance.x, quaternion.identity);
         }
 
         foreach (var wall in m_walls)
@@ -221,16 +182,38 @@ public class FrameManager : MonoBehaviour
         }
     }
 
+    private void GenerateWall(ref int _lastGen, ref float _currDistance, List<ObjectsPerDistance> _objects, Vector3 _deltaPos, Quaternion _rotation)
+    {
+        int gen = _lastGen;
+
+        float distance = _currDistance;
+        ObjectsPerDistance objectsPerDistance = _objects.FindLast(x => distance >= x.distance);
+        while (gen == _lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
+        {
+            gen = Random.Range(0, objectsPerDistance.objects.Count);
+        }
+        _lastGen = gen;
+            
+        GameObject facadeObject = objectsPerDistance.objects[gen];
+        _currDistance += facadeObject.GetComponent<Wall>().height;
+            
+        GameObject facade = Instantiate(facadeObject, 
+            Vector3.down * (_currDistance - m_distance) + _deltaPos, _rotation);
+        facade.transform.SetParent(m_upWallsParent);
+        m_walls.Add(facade.transform);
+    }
+    
     private void AddFrame(float _dist)
     {
+        ObjectsPerDistance objectsPerDistance = m_frameObjects.FindLast(x => _dist + m_distance >= x.distance);
         int gen = m_lastGen;
-        while (gen == m_lastGen && (m_frameObjects.Count > 1 || gen < 0))
+        while (gen == m_lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
         {
-            gen = Random.Range(0, m_frameObjects.Count);
+            gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
         m_lastGen = gen;
         
-        GameObject frame = Instantiate(m_frameObjects[gen], Vector3.down * _dist, quaternion.identity);
+        GameObject frame = Instantiate(objectsPerDistance.objects[gen], Vector3.down * _dist, quaternion.identity);
         frame.transform.SetParent(m_framesParent);
         m_frames.Add(frame.transform);
     }
