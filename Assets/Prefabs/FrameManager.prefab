@@ -119,23 +119,28 @@ MonoBehaviour:
   m_frameObjects:
   - distance: 0
     objects:
-    - {fileID: 6354077404998044974, guid: a8d6cce8a44477944a16152a0344dbb0, type: 3}
+    - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
+    - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
+    - {fileID: 6891655609741249165, guid: 9aca4e5d5a79e3444a7929a501c8b5eb, type: 3}
+  - distance: 470
+    objects:
+    - {fileID: 3377876131313533572, guid: e7369214a3d81994fbbb1c73b360633d, type: 3}
   - distance: 500
     objects:
-    - {fileID: 1168248676922755350, guid: ce54948b2b8a27b44a1c775bf2b9d7da, type: 3}
-    - {fileID: 1374365396642380684, guid: 453323359bef2a547aa30ae76fd6071a, type: 3}
-    - {fileID: 7739040758776805358, guid: 4139507a524c1444995067f1e8acbbbb, type: 3}
-    - {fileID: 2975069285046260497, guid: f8de89d8fd3367744803e85e05b4844c, type: 3}
-    - {fileID: 7439410019084159008, guid: 6a3e5fa29c789144c89b8ae3decd62fa, type: 3}
+    - {fileID: 1168248676922755350, guid: 7998c0a6d183a054199acde2830f26ab, type: 3}
+    - {fileID: 1168248676922755350, guid: 4b54a51168ecbe24c930b4f1d0ef4f3b, type: 3}
+    - {fileID: 1168248676922755350, guid: 73776f9ab77ca904e82c9ad11fc7a05e, type: 3}
+    - {fileID: 1168248676922755350, guid: ccb51a8d9530d714daa7663587c2491a, type: 3}
+    - {fileID: 1168248676922755350, guid: e6e89c522b4708a439848685a00acb6f, type: 3}
     - {fileID: 2975069285046260497, guid: de821fb5d619ce047a27fefea39487aa, type: 3}
     - {fileID: 7439410019084159008, guid: 4ba955195d5167a4eb29d591e4e1d61c, type: 3}
   m_circleObject: {fileID: 4989634216531816407, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
   m_facadeDistance: {x: 6.475, y: 3.64}
   m_maxPositiveFacadeDistance: 20
-  m_leftStartDistance: 500
-  m_rightStartDistance: 500
-  m_downStartDistance: -200
-  m_upStartDistance: 500
+  m_leftStartDistance: 480
+  m_rightStartDistance: 480
+  m_downStartDistance: -20
+  m_upStartDistance: 480
   m_leftFacadeObjects:
   - distance: -1000
     objects:
@@ -152,9 +157,9 @@ MonoBehaviour:
   - distance: -1000
     objects:
     - {fileID: 4540313511949488688, guid: 841b9d850d6af0d49814e92b4b6f6da4, type: 3}
-  m_distanceToReach: 1500
+  m_distanceToReach: 3000
   m_spaceAtEnd: 120
-  m_endObject: {fileID: 3599197172854449412, guid: 5e2980f0cf08b5b42963f655695363ad, type: 3}
+  m_endObject: {fileID: 9078690204027510993, guid: 5e2980f0cf08b5b42963f655695363ad, type: 3}
   m_framesParent: {fileID: 5650853479566578872}
   m_upWallsParent: {fileID: 3003281933488258107}
   m_downWallsParent: {fileID: 1042120257557899820}

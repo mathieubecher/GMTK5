@@ -83,5 +83,13 @@ public class UI_CanvasTitle : MonoBehaviour
         ValidateBtn.SetActive(false);
     }
 
+    public void DeselectAll()
+    {
+        GetComponent<Animator>().ResetTrigger("Instructions");
+        GetComponent<Animator>().ResetTrigger("Back");
+        GameObject myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+    }
+
 
 }

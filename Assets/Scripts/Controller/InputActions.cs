@@ -80,6 +80,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""fab73439-7164-4feb-ac00-dd818a6c6a1c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -500,6 +509,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""AnyPsInput"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a31efec4-21c9-48c9-a0e2-2f6a0129dd56"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45e40a50-7e0f-4b71-b87b-ac24940d6e42"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -542,6 +573,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Actions_AnyXboxInput = m_Actions.FindAction("AnyXboxInput", throwIfNotFound: true);
         m_Actions_AnyKeyboardInput = m_Actions.FindAction("AnyKeyboardInput", throwIfNotFound: true);
         m_Actions_AnyPsInput = m_Actions.FindAction("AnyPsInput", throwIfNotFound: true);
+        m_Actions_Back = m_Actions.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -609,6 +641,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_AnyXboxInput;
     private readonly InputAction m_Actions_AnyKeyboardInput;
     private readonly InputAction m_Actions_AnyPsInput;
+    private readonly InputAction m_Actions_Back;
     public struct ActionsActions
     {
         private @InputActions m_Wrapper;
@@ -619,6 +652,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @AnyXboxInput => m_Wrapper.m_Actions_AnyXboxInput;
         public InputAction @AnyKeyboardInput => m_Wrapper.m_Actions_AnyKeyboardInput;
         public InputAction @AnyPsInput => m_Wrapper.m_Actions_AnyPsInput;
+        public InputAction @Back => m_Wrapper.m_Actions_Back;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -646,6 +680,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @AnyPsInput.started += instance.OnAnyPsInput;
             @AnyPsInput.performed += instance.OnAnyPsInput;
             @AnyPsInput.canceled += instance.OnAnyPsInput;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -668,6 +705,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @AnyPsInput.started -= instance.OnAnyPsInput;
             @AnyPsInput.performed -= instance.OnAnyPsInput;
             @AnyPsInput.canceled -= instance.OnAnyPsInput;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -711,5 +751,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnAnyXboxInput(InputAction.CallbackContext context);
         void OnAnyKeyboardInput(InputAction.CallbackContext context);
         void OnAnyPsInput(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }
