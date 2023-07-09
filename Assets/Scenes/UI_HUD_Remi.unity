@@ -909,6 +909,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061413727219011352, guid: dc19e71f4c0fd504a9224ce006949545, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061413727219011352, guid: dc19e71f4c0fd504a9224ce006949545, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1440
+      objectReference: {fileID: 0}
     - target: {fileID: 1595260432624230929, guid: dc19e71f4c0fd504a9224ce006949545, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
