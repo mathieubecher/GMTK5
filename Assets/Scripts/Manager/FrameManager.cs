@@ -106,7 +106,6 @@ public class FrameManager : MonoBehaviour
             if ((m_distanceToReach - m_distance) / m_speed > 6.0f &&
                 (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.0f)
             {
-                Debug.Log("BOUM");
                 SixSecondBeforeBoumBoum?.Invoke();
             }
             
