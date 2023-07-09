@@ -42,11 +42,16 @@ public class FrameManager : MonoBehaviour
 
     private float m_distance = 0.0f;
     private List<Transform> m_frames;
+    private int m_lastGen = -1;
     
     private List<Transform> m_walls;
+    private int m_lastLeftGen = -1;
     private float m_leftCurrDistance = 0.0f;
+    private int m_lastRightGen = -1;
     private float m_rightCurrDistance = 0.0f;
+    private int m_lastDownGen = -1;
     private float m_downCurrDistance = 0.0f;
+    private int m_lastUpGen = -1;
     private float m_upCurrDistance = 0.0f;
 
     public float distance => m_distance;
@@ -80,12 +85,12 @@ public class FrameManager : MonoBehaviour
         
         m_frames = new List<Transform>();
         
-        AddFrame(m_endObject, m_distanceToReach);
+        AddEnd(m_distanceToReach);
         
         for (int i = m_spaceAtBegining; i <= m_maxFrame; ++i)
         {
             float dist = i * m_mettersPerFrame;
-            if(dist < m_distanceToReach - m_spaceAtEnd) AddFrame(m_frameObjects[i % m_frameObjects.Count], dist);
+            if(dist < m_distanceToReach - m_spaceAtEnd) AddFrame(dist);
         }
         
         
@@ -117,7 +122,7 @@ public class FrameManager : MonoBehaviour
         if (i > math.floor(m_distance / m_mettersPerFrame))
         {
             float dist = m_maxFrame * m_mettersPerFrame;
-            if(m_distance + dist < m_distanceToReach - m_spaceAtEnd) AddFrame(m_frameObjects[(i + m_maxFrame) % m_frameObjects.Count], dist);
+            if(m_distance + dist < m_distanceToReach - m_spaceAtEnd) AddFrame(dist);
         }
         
         foreach (var frame in m_frames)
@@ -137,7 +142,14 @@ public class FrameManager : MonoBehaviour
         // FRONT
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_upCurrDistance)
         {
-            GameObject facadeObject = m_frontFacadeObjects[Random.Range(0, m_frontFacadeObjects.Count)];
+            int gen = m_lastUpGen;
+            while (gen == m_lastUpGen && (m_frontFacadeObjects.Count > 1 || gen < 0))
+            {
+                gen = Random.Range(0, m_frontFacadeObjects.Count);
+            }
+            m_lastUpGen = gen;
+            
+            GameObject facadeObject = m_frontFacadeObjects[gen];
             m_upCurrDistance += facadeObject.GetComponent<Wall>().height;
             
             GameObject facade = Instantiate(facadeObject, 
@@ -147,7 +159,14 @@ public class FrameManager : MonoBehaviour
         }
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_downCurrDistance)
         {
-            GameObject facadeObject = m_frontFacadeObjects[Random.Range(0, m_frontFacadeObjects.Count)];
+            int gen = m_lastDownGen;
+            while (gen == m_lastDownGen && (m_frontFacadeObjects.Count > 1 || gen < 0))
+            {
+                gen = Random.Range(0, m_frontFacadeObjects.Count);
+            }
+            m_lastDownGen = gen;
+
+            GameObject facadeObject = m_frontFacadeObjects[gen];
             m_downCurrDistance += facadeObject.GetComponent<Wall>().height;
             
             GameObject facade = Instantiate(facadeObject, 
@@ -159,7 +178,14 @@ public class FrameManager : MonoBehaviour
         // SIDE
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_leftCurrDistance)
         {
-            GameObject facadeObject = m_sideFacadeObjects[Random.Range(0, m_sideFacadeObjects.Count)];
+            int gen = m_lastLeftGen;
+            while (gen == m_lastLeftGen && (m_sideFacadeObjects.Count > 1 || gen < 0))
+            {
+                gen = Random.Range(0, m_frontFacadeObjects.Count);
+            }
+            m_lastLeftGen = gen;
+
+            GameObject facadeObject = m_sideFacadeObjects[gen];
             m_leftCurrDistance += facadeObject.GetComponent<Wall>().height;
             
             GameObject facade = Instantiate(facadeObject, 
@@ -169,7 +195,14 @@ public class FrameManager : MonoBehaviour
         }
         while (m_distance + deltaPos + m_maxFrame * m_mettersPerFrame > m_rightCurrDistance)
         {
-            GameObject facadeObject = m_sideFacadeObjects[Random.Range(0, m_sideFacadeObjects.Count)];
+            int gen = m_lastRightGen;
+            while (gen == m_lastRightGen && (m_sideFacadeObjects.Count > 1 || gen < 0))
+            {
+                gen = Random.Range(0, m_frontFacadeObjects.Count);
+            }
+            m_lastRightGen = gen;
+
+            GameObject facadeObject = m_sideFacadeObjects[gen];
             m_rightCurrDistance += facadeObject.GetComponent<Wall>().height;
             
             GameObject facade = Instantiate(facadeObject, 
@@ -185,9 +218,23 @@ public class FrameManager : MonoBehaviour
         }
     }
 
-    private void AddFrame(GameObject _frame, float _dist)
+    private void AddFrame(float _dist)
     {
-        GameObject frame = Instantiate(_frame, Vector3.down * _dist, quaternion.identity);
+        int gen = m_lastGen;
+        while (gen == m_lastGen && (m_frameObjects.Count > 1 || gen < 0))
+        {
+            gen = Random.Range(0, m_frameObjects.Count);
+        }
+        m_lastGen = gen;
+        
+        GameObject frame = Instantiate(m_frameObjects[gen], Vector3.down * _dist, quaternion.identity);
+        frame.transform.SetParent(m_framesParent);
+        m_frames.Add(frame.transform);
+    }
+
+    private void AddEnd(float _dist)
+    {
+        GameObject frame = Instantiate(m_endObject, Vector3.down * _dist, quaternion.identity);
         frame.transform.SetParent(m_framesParent);
         m_frames.Add(frame.transform);
     }
