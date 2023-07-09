@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class FrameManager : MonoBehaviour
 {
+    public delegate void SimpleEvent();
+    public static event SimpleEvent SixSecondBeforeBoumBoum;
     #region Singleton
     private static FrameManager m_instance;
     public static FrameManager instance
@@ -80,7 +82,7 @@ public class FrameManager : MonoBehaviour
     private float m_upCurrDistance = 0.0f;
 
     public float distance => m_distance;
-
+    public float speed => m_speed;
     public void Awake()
     {
         GameManager.OnGameStart += GameStart;
@@ -98,6 +100,17 @@ public class FrameManager : MonoBehaviour
             UpdateWalls();
             UpdateFrames();
             UpdateCircles();
+            
+            float deltaPos = Time.deltaTime * m_speed;
+
+            if ((m_distanceToReach - m_distance) / m_speed > 6.0f &&
+                (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.0f)
+            {
+                Debug.Log("BOUM");
+                SixSecondBeforeBoumBoum?.Invoke();
+            }
+            
+            m_distance += deltaPos;
         }
     }
     
@@ -186,7 +199,6 @@ public class FrameManager : MonoBehaviour
             frame.position += Vector3.up * deltaPos;
             if(frame.position.y > m_maxPositiveDistance) Destroy(frame.gameObject);
         }
-        m_distance += deltaPos;
     }
 
     private void UpdateCircles()
