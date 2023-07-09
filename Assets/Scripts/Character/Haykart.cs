@@ -19,19 +19,14 @@ public class Haykart : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody>();
         m_animator = GetComponent<Animator>();
         GameManager.OnGameStart += GameStart;
+        GameManager.OnResumeGame += GameStart;
+        GameManager.OnGamePause += StopHaykart;
     }
     
     private void Update()
     {
         if (GameManager.instance.isGameRunning) ReadMovement();
-        else ResetMovement();
     }
-    
-    private void ResetMovement()
-    {
-        m_rigidbody.velocity = Vector3.zero;
-    }
-
     private void ReadMovement()
     {
         Vector3 moveInput = Controller.instance.moveInput;
@@ -57,28 +52,39 @@ public class Haykart : MonoBehaviour
     
     private void OnCollisionEnter(Collision _other)
     {
+        if (m_rigidbody.isKinematic) return;
         Vector3 position = transform.position;
         position.y = _other.transform.parent.position.y + 0.1f;
         transform.position = position;
+
+        if (_other.gameObject.layer == LayerMask.NameToLayer("Win"))
+        {
+            StopHaykart();
+            m_animator.SetBool("win", true);
+            GameManager.instance.WinGame();
+        }
+        else
+        {
+            StopHaykart();
+            m_animator.SetBool("dead", true);
+            GameManager.instance.LooseGame();
+        }
         
-        Loose();
     }
 
-    private void Loose()
+    private void StopHaykart()
     {
-        ResetMovement();
+        m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.isKinematic = true;
-        GameManager.instance.PauseGame();
-        
         m_animator.SetFloat("x", 0.0f);
         m_animator.SetFloat("y", 0.0f);
-        m_animator.SetBool("dead", true);
     }
 
     private void GameStart()
     {
         m_rigidbody.isKinematic = false;
         m_animator.SetBool("dead", false);
+        m_animator.SetBool("win", false);
         
     }
 }
