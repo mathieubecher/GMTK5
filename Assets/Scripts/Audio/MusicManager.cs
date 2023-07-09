@@ -35,7 +35,6 @@ public class MusicManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
             m_musicVolumeParam = musicVolumeParam;
-            SetVolume(0f);
         }
     }
 
@@ -43,12 +42,20 @@ public class MusicManager : MonoBehaviour
     {
         GameManager.OnGameStart += OnGameStart;
         FrameManager.SevenSecondBeforeBoumBoum += OnEnding;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene _scene, LoadSceneMode arg1)
+    {
+        if (_scene.buildIndex == 0)
+            PlayTitleMusic();
     }
 
     private void OnDisable()
     {
         GameManager.OnGameStart -= OnGameStart;
         FrameManager.SevenSecondBeforeBoumBoum -= OnEnding;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     private void OnGameStart()
     {
