@@ -16,7 +16,7 @@ public class CameraSwitch : MonoBehaviour
     {
         GetComponent<CinemachineVirtualCamera>().Priority = 0;
         var brain = Camera.main.GetComponent<CinemachineBrain>();
-        brain.m_DefaultBlend.m_Time = 0.6f;
+        brain.m_DefaultBlend.m_Time = 2.0f;
     }
 
     private void SwitchToIntro()
