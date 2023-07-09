@@ -44,7 +44,7 @@ public class Haykart : MonoBehaviour
         m_animator = GetComponent<Animator>();
         GameManager.OnGameStart += GameStart;
         GameManager.OnResumeGame += ResumeGame;
-        GameManager.OnGamePause += StopHaykart;
+        GameManager.OnGamePause += StopHaykart; 
     }
     
     private void Update()
