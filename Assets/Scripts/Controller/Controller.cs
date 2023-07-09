@@ -55,7 +55,7 @@ public class Controller : MonoBehaviour
     }
 
     private bool mute = false;
-    public void ReaMuteInput(InputAction.CallbackContext _context)
+    public void ReadMuteInput(InputAction.CallbackContext _context)
     {
         if (_context.performed)
         {

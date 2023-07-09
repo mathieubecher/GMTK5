@@ -179,6 +179,7 @@ public class Haykart : MonoBehaviour
 
     private void ResumeGame()
     {
+        m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.isKinematic = false;
         m_animator.SetBool("dead", false);
         m_animator.SetBool("win", false);
