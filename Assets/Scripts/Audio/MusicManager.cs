@@ -88,7 +88,7 @@ public class MusicManager : MonoBehaviour
         titleMusicInstance.start();
     }
 
-    public static void OnMusicVolumeChange(float _vol)
+    public static void SetVolume(float _vol)
     {
         if (m_musicVolumeParam != "")
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName(m_musicVolumeParam, 1);
