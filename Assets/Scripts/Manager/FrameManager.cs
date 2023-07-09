@@ -103,9 +103,9 @@ public class FrameManager : MonoBehaviour
     
     public Ring GetNextRing()
     { 
-        var circle = m_circles.Find(x => x.transform.position.y < 5.0f);
+        var circle = m_circles.Find(x => x != null && x.transform.position.y < 5.0f);
         
-        return !circle? null : circle.GetComponent<Ring>();
+        return !circle ? null : circle.GetComponent<Ring>();
     }
 
     private void GameStart()
