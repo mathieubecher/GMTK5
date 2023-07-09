@@ -97,7 +97,7 @@ Transform:
   - {fileID: 3242703776964573588}
   - {fileID: 6913201633558810310}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1878153687172697568
 MonoBehaviour:
@@ -122,22 +122,35 @@ MonoBehaviour:
     - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
     - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
     - {fileID: 6891655609741249165, guid: 9aca4e5d5a79e3444a7929a501c8b5eb, type: 3}
-  - distance: 500
+  - distance: 360
     objects:
     - {fileID: 1168248676922755350, guid: 7998c0a6d183a054199acde2830f26ab, type: 3}
     - {fileID: 1168248676922755350, guid: 4b54a51168ecbe24c930b4f1d0ef4f3b, type: 3}
     - {fileID: 1168248676922755350, guid: 73776f9ab77ca904e82c9ad11fc7a05e, type: 3}
     - {fileID: 1168248676922755350, guid: ccb51a8d9530d714daa7663587c2491a, type: 3}
     - {fileID: 1168248676922755350, guid: e6e89c522b4708a439848685a00acb6f, type: 3}
-    - {fileID: 2975069285046260497, guid: de821fb5d619ce047a27fefea39487aa, type: 3}
-    - {fileID: 7439410019084159008, guid: 4ba955195d5167a4eb29d591e4e1d61c, type: 3}
+    - {fileID: 1168248676922755350, guid: 7f78d5d50f6523e4ba64431dfc805b27, type: 3}
+    - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
+    - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
+  - distance: 840
+    objects:
+    - {fileID: 1168248676922755350, guid: 2d68a5948d307f64d93904f62b8652b6, type: 3}
+    - {fileID: 1168248676922755350, guid: 12c561e5f65c531409b9f5b19a3fff11, type: 3}
+    - {fileID: 1168248676922755350, guid: d0e5f048d2ff2bd49a78740176c7f769, type: 3}
+    - {fileID: 1168248676922755350, guid: 59901272210c0ae4eba774b6dc8f5cfa, type: 3}
+  - distance: 1200
+    objects:
+    - {fileID: 1168248676922755350, guid: 4375cf19e68a86042919aad4fd693bba, type: 3}
+    - {fileID: 1168248676922755350, guid: 4b54a51168ecbe24c930b4f1d0ef4f3b, type: 3}
+    - {fileID: 1168248676922755350, guid: 73776f9ab77ca904e82c9ad11fc7a05e, type: 3}
+    - {fileID: 1168248676922755350, guid: ccb51a8d9530d714daa7663587c2491a, type: 3}
   m_circleObject: {fileID: 4989634216531816407, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
   m_facadeDistance: {x: 6.475, y: 3.64}
   m_maxPositiveFacadeDistance: 20
-  m_leftStartDistance: 500
-  m_rightStartDistance: 500
+  m_leftStartDistance: 1800
+  m_rightStartDistance: 1800
   m_downStartDistance: -20
-  m_upStartDistance: 500
+  m_upStartDistance: 840
   m_leftFacadeObjects:
   - distance: -1000
     objects:
