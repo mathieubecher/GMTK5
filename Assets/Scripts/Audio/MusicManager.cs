@@ -35,7 +35,6 @@ public class MusicManager : MonoBehaviour
             DontDestroyOnLoad(this);
             instance = this;
             m_musicVolumeParam = musicVolumeParam;
-            SetVolume(0f);
         }
     }
 
