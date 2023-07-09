@@ -129,7 +129,7 @@ public class UI_ButtonAC : MonoBehaviour, IDeselectHandler, ISelectHandler, IPoi
 
     public void DeselectAll()
     {
-        GameObject myEventSystem = GameObject.Find("EventSystem");
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+        var eventSystem = FindObjectOfType<EventSystem>();
+        if(eventSystem) eventSystem.SetSelectedGameObject(null);
     }
 }
