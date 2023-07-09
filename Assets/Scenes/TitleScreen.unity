@@ -133,8 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 17168947}
   - component: {fileID: 17168946}
-  - component: {fileID: 17168945}
   - component: {fileID: 17168948}
+  - component: {fileID: 17168949}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -142,14 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &17168945
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17168944}
-  m_Enabled: 1
 --- !u!20 &17168946
 Camera:
   m_ObjectHideFlags: 0
@@ -276,6 +268,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &17168949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17168944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &85356468 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 767794267853703682, guid: 6cbb2f0e90be85e4eaf9ad3e55fad490, type: 3}
@@ -1527,8 +1532,8 @@ MonoBehaviour:
     multicultural team of
     haystacks with various compositions and origins.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
-  m_sharedMaterial: {fileID: -196392576326020864, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
