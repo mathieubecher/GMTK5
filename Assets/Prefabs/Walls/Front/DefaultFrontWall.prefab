@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5414672859d1804dbcec430d0e0d2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_height: 4.9
+  m_height: 5
+  m_texture: {fileID: 2800000, guid: 449c90484c16e8d4d8670f6d5db2f7cb, type: 3}
+  m_renderer: {fileID: 8634881523696642557}
 --- !u!1 &8950154817067855742
 GameObject:
   m_ObjectHideFlags: 0

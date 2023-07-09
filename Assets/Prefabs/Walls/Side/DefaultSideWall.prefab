@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_height: 5
+  m_texture: {fileID: 2800000, guid: 449c90484c16e8d4d8670f6d5db2f7cb, type: 3}
+  m_renderer: {fileID: 1573902083986205853}
 --- !u!1 &3736371892088384451
 GameObject:
   m_ObjectHideFlags: 0
