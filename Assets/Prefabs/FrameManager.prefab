@@ -122,7 +122,7 @@ MonoBehaviour:
     - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
     - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
     - {fileID: 6891655609741249165, guid: 9aca4e5d5a79e3444a7929a501c8b5eb, type: 3}
-  - distance: 50
+  - distance: 500
     objects:
     - {fileID: 1168248676922755350, guid: 7998c0a6d183a054199acde2830f26ab, type: 3}
     - {fileID: 1168248676922755350, guid: 4b54a51168ecbe24c930b4f1d0ef4f3b, type: 3}
