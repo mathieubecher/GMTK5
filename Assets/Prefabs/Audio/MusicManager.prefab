@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2080267094165232355
 MonoBehaviour:
@@ -46,11 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleMusicEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1027387183
+      Data2: 1244839083
+      Data3: -1728419694
+      Data4: 1625263143
+    Path: event:/TitleScreen
   mainMusicEvent:
     Guid:
       Data1: -138312842

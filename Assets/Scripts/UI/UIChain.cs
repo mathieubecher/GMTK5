@@ -33,11 +33,13 @@ public class UIChain : MonoBehaviour
     private void ResetChain()
     {
         m_chain = 0;
+        GetComponent<Animator>().SetBool("ShowChain", false);
     }
 
     private void EnterCircle()
     {
         m_chain++;
+        GetComponent<Animator>().SetBool("ShowChain", true);
     }
 
     private void MissCircle()
@@ -47,6 +49,6 @@ public class UIChain : MonoBehaviour
 
     void Update()
     {
-        m_text.text = "Chain : " + m_chain;
+        //m_text.text = "Chain : " + m_chain;
     }
 }
