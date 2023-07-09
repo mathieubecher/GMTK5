@@ -9,11 +9,12 @@ public class UI_CanvasTitle : MonoBehaviour
 {
     public int phase = 0;
     public Button PlayBtn;
+    public GameObject ValidateBtn;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,7 +22,8 @@ public class UI_CanvasTitle : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            Debug.Log("A key or mouse click has been detected");
+
+
 
             if (phase == 0)
             {
@@ -32,7 +34,7 @@ public class UI_CanvasTitle : MonoBehaviour
                 phase = 2;
                 GetComponent<Animator>().SetTrigger("PressAnyKey");
 
-            } 
+            }
         }
     }
 
@@ -44,6 +46,41 @@ public class UI_CanvasTitle : MonoBehaviour
     public void LauchGame()
     {
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+    }
+
+    public void UpdateKeyboardInput()
+    {
+        ValidateBtn.SetActive(true);
+        var foundInputHintObjects = FindObjectsOfType<UI_InputHint>();
+        foreach (UI_InputHint inputHint in foundInputHintObjects)
+        {
+            inputHint.GetComponent<UI_InputHint>().OnKeyboardInput();
+        }
+    }
+
+    public void UpdatePsInput()
+    {
+        ValidateBtn.SetActive(true);
+        var foundInputHintObjects = FindObjectsOfType<UI_InputHint>();
+        foreach (UI_InputHint inputHint in foundInputHintObjects)
+        {
+            inputHint.GetComponent<UI_InputHint>().OnPsInput();
+        }
+    }
+
+    public void UpdateXboxInput()
+    {
+        ValidateBtn.SetActive(true);
+        var foundInputHintObjects = FindObjectsOfType<UI_InputHint>();
+        foreach (UI_InputHint inputHint in foundInputHintObjects)
+        {
+            inputHint.GetComponent<UI_InputHint>().OnXboxInput();
+        }
+    }
+
+    public void HideValidate()
+    {
+        ValidateBtn.SetActive(false);
     }
 
 
