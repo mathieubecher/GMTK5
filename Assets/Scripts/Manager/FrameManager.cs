@@ -60,6 +60,9 @@ public class FrameManager : MonoBehaviour
     {
         GameManager.OnGameStart += GameStart;
         GameManager.OnGameWin += GameWin;
+        
+        m_frames = new List<Transform>();
+        m_walls = new List<Transform>();
     }
 
     public void Update()
