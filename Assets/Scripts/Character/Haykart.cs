@@ -131,7 +131,7 @@ public class Haykart : MonoBehaviour
             if(dist.magnitude < 2.0f)
             {
                 OnEnterCircle?.Invoke();
-                ring.success = true;
+                ring.Success();
                 m_chain++;
                 
                 if (math.floor((m_score + 5 * m_chain) / 100.0) > math.floor(m_score / 100.0) && m_currentLife < m_maxLife)
@@ -148,7 +148,7 @@ public class Haykart : MonoBehaviour
             else
             {
                 OnMissCircle?.Invoke();
-                ring.failed = true;
+                ring.Fail();
                 m_chain = math.max(m_chain - 1, 0); 
             }
         }

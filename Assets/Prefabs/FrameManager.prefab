@@ -134,7 +134,7 @@ MonoBehaviour:
     - {fileID: 1168248676922755350, guid: e6e89c522b4708a439848685a00acb6f, type: 3}
     - {fileID: 2975069285046260497, guid: de821fb5d619ce047a27fefea39487aa, type: 3}
     - {fileID: 7439410019084159008, guid: 4ba955195d5167a4eb29d591e4e1d61c, type: 3}
-  m_circleObject: {fileID: 4989634216531816407, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
+  m_circleObject: {fileID: 7506809425844580748, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
   m_facadeDistance: {x: 6.475, y: 3.64}
   m_maxPositiveFacadeDistance: 20
   m_leftStartDistance: 480
