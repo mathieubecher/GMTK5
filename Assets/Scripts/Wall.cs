@@ -17,13 +17,13 @@ public class Wall : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        m_renderer.material.mainTexture = m_texture;
+        if(m_renderer) m_renderer.material.mainTexture = m_texture;
     }
     
 #if UNITY_EDITOR
     public void SetTexture()
     {
-        m_renderer.sharedMaterial.mainTexture = m_texture;
+        if(m_renderer) m_renderer.sharedMaterial.mainTexture = m_texture;
     }
 #endif
 }
