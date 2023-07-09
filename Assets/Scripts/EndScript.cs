@@ -11,19 +11,10 @@ public class EndScript : MonoBehaviour
     
     private void Awake()
     {
-        GameManager.OnGameStart += GameStart;
-    }
-
-    private void OnDestroy()
-    {
-        GameManager.OnGameStart -= GameStart;
-    }
-
-    private void GameStart()
-    {
-        Vector3 position = m_assassinPos.position;
-        position.x = Random.Range(- m_distance.x - 2.0f, m_distance.x + 2.0f);
-        position.y = Random.Range(- m_distance.y - 2.0f, m_distance.y + 2.0f);
-        m_assassinPos.position = position;
+        Vector3 position = m_assassinPos.localPosition;
+        position.x = Random.Range(- m_distance.x + 2.0f, m_distance.x - 2.0f);
+        position.z = Random.Range(- m_distance.y + 2.0f, m_distance.y - 2.0f);
+        Debug.Log(position);
+        m_assassinPos.localPosition = position;
     }
 }
