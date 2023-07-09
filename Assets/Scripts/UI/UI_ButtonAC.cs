@@ -86,16 +86,17 @@ public class UI_ButtonAC : MonoBehaviour, IDeselectHandler, ISelectHandler, IPoi
 
     }
 
-    public void UpdateCheckmark(bool Active)
+    public void UpdateCheckmark(bool Active, bool isImperialButton)
     {
         On = Active;
+        UI_MetricsInformation.instance.IsImperial = isImperialButton;
 
         if (isFocused == true)
         {
             
             if (On == true)
             {
-                Twin_Button.GetComponent<UI_ButtonAC>().UpdateCheckmark(false);
+                Twin_Button.GetComponent<UI_ButtonAC>().UpdateCheckmark(false, isImperialButton);
                 Checkmark_Object.sprite = Checkmark_True_Focused;
 
             }
@@ -108,7 +109,7 @@ public class UI_ButtonAC : MonoBehaviour, IDeselectHandler, ISelectHandler, IPoi
         {
             if (On == true)
             {
-                Twin_Button.GetComponent<UI_ButtonAC>().UpdateCheckmark(false);
+                Twin_Button.GetComponent<UI_ButtonAC>().UpdateCheckmark(false, isImperialButton);
                 Checkmark_Object.sprite = Checkmark_True;
 
             }
@@ -118,6 +119,12 @@ public class UI_ButtonAC : MonoBehaviour, IDeselectHandler, ISelectHandler, IPoi
             }
         }
     }
+
+    public void OnButtonCheckmarkClick(bool isImperialButton)
+    {
+        UpdateCheckmark(true, isImperialButton);
+    }
+
 
     public void DeselectAll()
     {

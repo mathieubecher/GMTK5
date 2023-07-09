@@ -596,6 +596,51 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6414894455113991670, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
   m_PrefabInstance: {fileID: 346207014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &388255852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388255854}
+  - component: {fileID: 388255853}
+  m_Layer: 0
+  m_Name: MetricsInformation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &388255853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388255852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9e03f7799f2564db33853cd106a7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsImperial: 0
+--- !u!4 &388255854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388255852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403554158
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateCheckmark
+      value: OnButtonCheckmarkClick
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -884,7 +929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1777,7 +1822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateCheckmark
+      value: OnButtonCheckmarkClick
       objectReference: {fileID: 0}
     - target: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
