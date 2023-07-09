@@ -53,6 +53,33 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyXboxInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""140a1b1c-1271-4276-b8f3-1d9ba9c256b6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyKeyboardInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e218b34-dc88-47e0-8c6d-53ead846ea5b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AnyPsInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""cde4e1f2-cdbc-408f-a1fc-696ff3a64a13"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +236,270 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Space"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8c4be21-52a9-4361-a1b4-b76c17d06c73"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0da679e8-b1e4-4304-b584-481c2b8b6566"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5272afb-5c90-47b6-aed8-4e3e348547ff"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ca13617-fcab-439b-8ed6-89071d19fc98"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cebcdd05-033e-4089-ae57-552b17f1f9e8"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d79516da-0160-44e0-b068-e6f56f0b0618"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05d7eff8-94cb-4078-961e-e01c038e7650"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47048295-30fd-4981-8058-436dc9c13244"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4370e94e-b18e-4d5d-928a-73d7f6674775"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""682457c2-df33-4d1d-967a-cf8b47f10054"",
+                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b380ab2-5c7f-466f-8845-c25a6a02ff9c"",
+                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13bf90cc-f518-4bef-8b11-ef8e6ef3331f"",
+                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyXboxInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""954ab81c-e242-4fec-ae1f-e8dc9a668c0d"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and mouse"",
+                    ""action"": ""AnyKeyboardInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6226f3d1-9498-4ccd-9224-9c95166e22c1"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52e08c65-ad31-43d7-9092-dce1d1552584"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9953433e-d1fd-4e9c-bd46-0e710cb715d0"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60c6d896-19bd-40d4-8229-9cec7abc7c9d"",
+                    ""path"": ""<DualShockGamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4133499-dffa-4343-b7c9-e828eb1a9044"",
+                    ""path"": ""<DualShockGamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a3ebc90-d8f8-4644-9ab9-ec31537dedcd"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03e2696b-f203-4b54-8444-93d511a882a6"",
+                    ""path"": ""<DualShockGamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e39f8889-25ef-4ab3-851e-8b8d2ecdf63f"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5d5f1a3-591f-4096-9913-02657fe52d58"",
+                    ""path"": ""<DualShockGamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60adf70f-c064-4275-b952-f585bddd2e6a"",
+                    ""path"": ""<DualShockGamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce445552-2d4c-436c-b6fc-bf5208f72e36"",
+                    ""path"": ""<DualShockGamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""AnyPsInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +539,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Actions_Click = m_Actions.FindAction("Click", throwIfNotFound: true);
         m_Actions_Move = m_Actions.FindAction("Move", throwIfNotFound: true);
         m_Actions_Space = m_Actions.FindAction("Space", throwIfNotFound: true);
+        m_Actions_AnyXboxInput = m_Actions.FindAction("AnyXboxInput", throwIfNotFound: true);
+        m_Actions_AnyKeyboardInput = m_Actions.FindAction("AnyKeyboardInput", throwIfNotFound: true);
+        m_Actions_AnyPsInput = m_Actions.FindAction("AnyPsInput", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -312,6 +606,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Click;
     private readonly InputAction m_Actions_Move;
     private readonly InputAction m_Actions_Space;
+    private readonly InputAction m_Actions_AnyXboxInput;
+    private readonly InputAction m_Actions_AnyKeyboardInput;
+    private readonly InputAction m_Actions_AnyPsInput;
     public struct ActionsActions
     {
         private @InputActions m_Wrapper;
@@ -319,6 +616,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Click => m_Wrapper.m_Actions_Click;
         public InputAction @Move => m_Wrapper.m_Actions_Move;
         public InputAction @Space => m_Wrapper.m_Actions_Space;
+        public InputAction @AnyXboxInput => m_Wrapper.m_Actions_AnyXboxInput;
+        public InputAction @AnyKeyboardInput => m_Wrapper.m_Actions_AnyKeyboardInput;
+        public InputAction @AnyPsInput => m_Wrapper.m_Actions_AnyPsInput;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -337,6 +637,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Space.started += instance.OnSpace;
             @Space.performed += instance.OnSpace;
             @Space.canceled += instance.OnSpace;
+            @AnyXboxInput.started += instance.OnAnyXboxInput;
+            @AnyXboxInput.performed += instance.OnAnyXboxInput;
+            @AnyXboxInput.canceled += instance.OnAnyXboxInput;
+            @AnyKeyboardInput.started += instance.OnAnyKeyboardInput;
+            @AnyKeyboardInput.performed += instance.OnAnyKeyboardInput;
+            @AnyKeyboardInput.canceled += instance.OnAnyKeyboardInput;
+            @AnyPsInput.started += instance.OnAnyPsInput;
+            @AnyPsInput.performed += instance.OnAnyPsInput;
+            @AnyPsInput.canceled += instance.OnAnyPsInput;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -350,6 +659,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Space.started -= instance.OnSpace;
             @Space.performed -= instance.OnSpace;
             @Space.canceled -= instance.OnSpace;
+            @AnyXboxInput.started -= instance.OnAnyXboxInput;
+            @AnyXboxInput.performed -= instance.OnAnyXboxInput;
+            @AnyXboxInput.canceled -= instance.OnAnyXboxInput;
+            @AnyKeyboardInput.started -= instance.OnAnyKeyboardInput;
+            @AnyKeyboardInput.performed -= instance.OnAnyKeyboardInput;
+            @AnyKeyboardInput.canceled -= instance.OnAnyKeyboardInput;
+            @AnyPsInput.started -= instance.OnAnyPsInput;
+            @AnyPsInput.performed -= instance.OnAnyPsInput;
+            @AnyPsInput.canceled -= instance.OnAnyPsInput;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -390,5 +708,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnSpace(InputAction.CallbackContext context);
+        void OnAnyXboxInput(InputAction.CallbackContext context);
+        void OnAnyKeyboardInput(InputAction.CallbackContext context);
+        void OnAnyPsInput(InputAction.CallbackContext context);
     }
 }

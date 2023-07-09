@@ -163,6 +163,8 @@ public class FrameManager : MonoBehaviour
             }
         }
         m_walls = new List<Transform>();
+
+        UpdateWalls();
     }
     
     private void UpdateFrames()
