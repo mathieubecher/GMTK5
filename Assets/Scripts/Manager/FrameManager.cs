@@ -7,7 +7,20 @@ using Random = UnityEngine.Random;
 
 public class FrameManager : MonoBehaviour
 {
-
+    #region Singleton
+    private static FrameManager m_instance;
+    public static FrameManager instance
+    {
+        get
+        {
+            if (!m_instance)
+            {
+                m_instance = FindObjectOfType<FrameManager>();
+            }
+            return m_instance;
+        }
+    }
+    #endregion
     [Serializable] struct ObjectsPerDistance
     {
         public float distance;
@@ -23,6 +36,7 @@ public class FrameManager : MonoBehaviour
     [SerializeField] private float m_maxPositiveDistance = 10.0f;
     [Space]
     [SerializeField] private List<ObjectsPerDistance> m_frameObjects;
+    [SerializeField] private GameObject m_circleObject;
 
     [Header("Facade")]
     [SerializeField] private Vector2 m_facadeDistance;
@@ -51,9 +65,11 @@ public class FrameManager : MonoBehaviour
 
     private float m_distance = 0.0f;
     private List<Transform> m_frames;
+    private Frame m_lastFrame;
     private int m_lastGen = -1;
     
     private List<Transform> m_walls;
+    private List<Transform> m_circles;
     private int m_lastLeftGen = -1;
     private float m_leftCurrDistance = 0.0f;
     private int m_lastRightGen = -1;
@@ -72,6 +88,7 @@ public class FrameManager : MonoBehaviour
         
         m_frames = new List<Transform>();
         m_walls = new List<Transform>();
+        m_circles = new List<Transform>();
     }
 
     public void Update()
@@ -80,12 +97,42 @@ public class FrameManager : MonoBehaviour
         {
             UpdateWalls();
             UpdateFrames();
+            UpdateCircles();
         }
     }
     
+    public Ring GetNextRing()
+    { 
+        var circle = m_circles.Find(x => x.transform.position.y < 5.0f);
+        
+        return !circle? null : circle.GetComponent<Ring>();
+    }
+
     private void GameStart()
     {
+        m_leftCurrDistance = m_leftStartDistance;
+        m_rightCurrDistance = m_rightStartDistance;
+        m_downCurrDistance = m_downStartDistance;
+        m_upCurrDistance = m_upStartDistance;
+
+        m_lastGen = -1;
+        m_lastUpGen = -1;
+        m_lastDownGen = -1;
+        m_lastLeftGen = -1;
+        m_lastRightGen = -1;
+        
         m_distance = 0.0f;
+
+        if (m_circles != null)
+        {
+            m_circles.RemoveAll(wall => wall == null);
+            foreach (var circle in m_circles)
+            {
+                Destroy(circle.gameObject);
+            }
+        }
+        m_circles = new List<Transform>();
+        
         if (m_frames != null)
         {
             m_frames.RemoveAll(frame => frame == null);
@@ -96,6 +143,7 @@ public class FrameManager : MonoBehaviour
         }
         
         m_frames = new List<Transform>();
+        m_lastFrame = null;
         
         AddEnd(m_distanceToReach);
         
@@ -114,12 +162,6 @@ public class FrameManager : MonoBehaviour
                 Destroy(wall.gameObject);
             }
         }
-        
-        m_leftCurrDistance = m_leftStartDistance;
-        m_rightCurrDistance = m_rightStartDistance;
-        m_downCurrDistance = m_downStartDistance;
-        m_upCurrDistance = m_upStartDistance;
-        
         m_walls = new List<Transform>();
     }
     
@@ -145,6 +187,18 @@ public class FrameManager : MonoBehaviour
         m_distance += deltaPos;
     }
 
+    private void UpdateCircles()
+    {
+        m_circles.RemoveAll(frame => frame == null);
+        
+        float deltaPos = Time.deltaTime * m_speed;
+        foreach (var circle in m_circles)
+        {
+            circle.position += Vector3.up * deltaPos;
+            if(circle.position.y > m_maxPositiveFacadeDistance) Destroy(circle.gameObject);
+        }
+    }
+    
     private void UpdateWalls()
     {
         m_walls.RemoveAll(frame => frame == null);
@@ -211,11 +265,20 @@ public class FrameManager : MonoBehaviour
         {
             gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
-        m_lastGen = gen;
-        
-        GameObject frame = Instantiate(objectsPerDistance.objects[gen], Vector3.down * _dist, quaternion.identity);
+        m_lastGen = gen;   
+        GameObject frameInstance = Instantiate(objectsPerDistance.objects[gen], Vector3.down * _dist, quaternion.identity);
+        Frame frame = frameInstance.GetComponent<Frame>();
         frame.transform.SetParent(m_framesParent);
+
+        if (m_lastFrame)
+        {
+            Vector3 circlePosition = Vector3.Lerp(m_lastFrame.GetRandomPOI(), frame.GetRandomPOI(), 0.5f);
+            GameObject circleInstance = Instantiate(m_circleObject, circlePosition, quaternion.identity);
+            m_circles.Add(circleInstance.transform);
+        }
+        
         m_frames.Add(frame.transform);
+        m_lastFrame = frame;
     }
 
     private void AddEnd(float _dist)
