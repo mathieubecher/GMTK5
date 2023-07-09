@@ -132,7 +132,10 @@ MonoBehaviour:
     - {fileID: 1168248676922755350, guid: 7f78d5d50f6523e4ba64431dfc805b27, type: 3}
     - {fileID: 1918267470218150443, guid: a49d156757ee67c41a579c60105fce92, type: 3}
     - {fileID: 421597060803423430, guid: 9f7b79d61f13fd54f9e8cbfce1250035, type: 3}
-  - distance: 840
+  - distance: 830
+    objects:
+    - {fileID: 3377876131313533572, guid: 3370f9f2d4095754fafc17fdad1f61b0, type: 3}
+  - distance: 850
     objects:
     - {fileID: 1168248676922755350, guid: 2d68a5948d307f64d93904f62b8652b6, type: 3}
     - {fileID: 1168248676922755350, guid: 12c561e5f65c531409b9f5b19a3fff11, type: 3}
