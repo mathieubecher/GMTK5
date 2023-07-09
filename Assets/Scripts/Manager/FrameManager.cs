@@ -93,7 +93,7 @@ public class FrameManager : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.instance.isGameRunning)
+        if (GameManager.instance.isGameRunning && Haykart.fall)
         {
             UpdateWalls();
             UpdateFrames();

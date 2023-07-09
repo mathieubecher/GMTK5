@@ -16,6 +16,9 @@ public class Haykart : MonoBehaviour
     public delegate void SimpleEvent();
     public static event SimpleEvent OnEnterCircle;
     public static event SimpleEvent OnMissCircle;
+    public static event SimpleEvent OnStartFalling;
+
+    public static bool fall = false;
     
     
     const float TOLERANCE = 0.01f;
@@ -46,7 +49,7 @@ public class Haykart : MonoBehaviour
     
     private void Update()
     {
-        if (GameManager.instance.isGameRunning)
+        if (GameManager.instance.isGameRunning && fall)
         {
             ReadMovement();
             DetectRing();
@@ -144,6 +147,7 @@ public class Haykart : MonoBehaviour
     
     private void StopHaykart()
     {
+        fall = false;
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.isKinematic = true;
         m_animator.SetFloat("x", 0.0f);
@@ -152,8 +156,16 @@ public class Haykart : MonoBehaviour
 
     private void GameStart()
     {
+        fall = false;
+        m_animator.SetTrigger("Intro");
         transform.position = Vector3.zero;
         ResumeGame();
+    }
+
+    public void StartFalling()
+    {
+        fall = true;
+        OnStartFalling?.Invoke();
     }
 
     private void ResumeGame()
