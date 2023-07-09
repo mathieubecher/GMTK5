@@ -58,3 +58,5 @@ MonoBehaviour:
       Data3: 1943641737
       Data4: -880837587
     Path: event:/MainMusic
+  mainMusicStateParam: Progress
+  musicVolumeParam: Volume

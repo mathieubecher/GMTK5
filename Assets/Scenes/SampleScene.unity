@@ -801,10 +801,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1878153687172697568, guid: 1c7b9044ff8549c4ebca3baaf8a47eb6, type: 3}
-      propertyPath: m_circleObject
-      value: 
-      objectReference: {fileID: 4989634216531816407, guid: 900e007ce19ec504cb394b44a0ef602e, type: 3}
-    - target: {fileID: 1878153687172697568, guid: 1c7b9044ff8549c4ebca3baaf8a47eb6, type: 3}
       propertyPath: m_downStartDistance
       value: -20
       objectReference: {fileID: 0}

@@ -19,6 +19,11 @@ public class MusicManager : MonoBehaviour
     private FMOD.Studio.EventInstance mainMusicInstance;
     private bool mainMusicInstanceWasCreated;
 
+    [FMODUnity.ParamRef]
+    public string mainMusicStateParam;
+    [FMODUnity.ParamRef] public string musicVolumeParam;
+    private static string m_musicVolumeParam;
+
     public static MusicManager instance;
 
     private void Awake()
@@ -29,21 +34,32 @@ public class MusicManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
             instance = this;
+            m_musicVolumeParam = musicVolumeParam;
         }
     }
 
     private void OnEnable()
     {
         GameManager.OnGameStart += OnGameStart;
+        FrameManager.SevenSecondBeforeBoumBoum += OnEnding;
     }
 
     private void OnDisable()
     {
         GameManager.OnGameStart -= OnGameStart;
+        FrameManager.SevenSecondBeforeBoumBoum -= OnEnding;
     }
     private void OnGameStart()
     {
+        if (mainMusicInstanceWasCreated)
+            mainMusicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(mainMusicStateParam, 0);
         PlayMainMusic();
+    }
+
+    private void OnEnding()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(mainMusicStateParam, 1);
     }
 
     public void PlayMainMusic()
@@ -70,5 +86,11 @@ public class MusicManager : MonoBehaviour
             titleMusicInstanceWasCreated = true;
         }
         titleMusicInstance.start();
+    }
+
+    public static void SetVolume(float _vol)
+    {
+        if (m_musicVolumeParam != "")
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(m_musicVolumeParam, 1);
     }
 }

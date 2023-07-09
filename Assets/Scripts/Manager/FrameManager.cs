@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class FrameManager : MonoBehaviour
 {
     public delegate void SimpleEvent();
-    public static event SimpleEvent SixSecondBeforeBoumBoum;
+    public static event SimpleEvent SevenSecondBeforeBoumBoum;
     #region Singleton
     private static FrameManager m_instance;
     public static FrameManager instance
@@ -103,10 +103,10 @@ public class FrameManager : MonoBehaviour
             
             float deltaPos = Time.deltaTime * m_speed;
 
-            if ((m_distanceToReach - m_distance) / m_speed > 6.0f &&
-                (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.0f)
+            if ((m_distanceToReach - m_distance) / m_speed > 6.5f &&
+                (m_distanceToReach - m_distance - deltaPos) / m_speed <= 6.5f)
             {
-                SixSecondBeforeBoumBoum?.Invoke();
+                SevenSecondBeforeBoumBoum?.Invoke();
             }
             
             m_distance += deltaPos;
@@ -255,7 +255,7 @@ public class FrameManager : MonoBehaviour
 
         float distance = _currDistance;
         ObjectsPerDistance objectsPerDistance = _objects.FindLast(x => distance >= x.distance);
-        while (gen == _lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
+        while (gen == _lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0 || gen >= objectsPerDistance.objects.Count))
         {
             gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
@@ -274,11 +274,11 @@ public class FrameManager : MonoBehaviour
     {
         ObjectsPerDistance objectsPerDistance = m_frameObjects.FindLast(x => _dist + m_distance >= x.distance);
         int gen = m_lastGen;
-        while (gen == m_lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0))
+        while (gen == m_lastGen && (objectsPerDistance.objects.Count > 1 || gen < 0 || gen >= objectsPerDistance.objects.Count))
         {
             gen = Random.Range(0, objectsPerDistance.objects.Count);
         }
-        m_lastGen = gen;   
+        m_lastGen = gen;
         GameObject frameInstance = Instantiate(objectsPerDistance.objects[gen], Vector3.down * _dist, quaternion.identity);
         Frame frame = frameInstance.GetComponent<Frame>();
         frame.transform.SetParent(m_framesParent);
