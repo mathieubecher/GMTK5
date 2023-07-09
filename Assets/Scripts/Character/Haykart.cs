@@ -68,7 +68,7 @@ public class Haykart : MonoBehaviour
         {
             moveInput.x = 0.0f;
         }
-        if (math.abs(transform.position.z + desiredVelocity.z * Time.deltaTime) > m_distance.y - 1.0f
+        if (math.abs(transform.position.z + desiredVelocity.z * Time.deltaTime) > m_distance.y - 0.6f
             && Math.Abs(math.sign(transform.position.z) - math.sign(desiredVelocity.z)) <= TOLERANCE)
         {
             moveInput.z = 0.0f;
@@ -167,6 +167,8 @@ public class Haykart : MonoBehaviour
     {
         fall = false;
         m_animator.SetTrigger("Intro");
+        m_currentLife = m_lifeAtStart;
+        m_foin.localScale = new Vector3(1.0f, 1.0f, m_foinScalePerLife[m_currentLife]);
         transform.position = Vector3.zero;
         ResumeGame();
     }
@@ -179,9 +181,9 @@ public class Haykart : MonoBehaviour
 
     private void ResumeGame()
     {
+        m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.isKinematic = false;
         m_animator.SetBool("dead", false);
         m_animator.SetBool("win", false);
-        m_currentLife = m_lifeAtStart;
     }
 }
