@@ -1804,7 +1804,7 @@ Transform:
   - {fileID: 8185717732654867686}
   - {fileID: 7993053785228222577}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &1867932790634082633
 MonoBehaviour:
@@ -1828,6 +1828,15 @@ MonoBehaviour:
   - 0.85
   - 0.825
   - 0.8
+  m_foinScalePerLife:
+  - 0.5
+  - 0.75
+  - 1
+  - 1.1
+  - 1.2
+  - 1.4
+  - 1.5
+  m_foin: {fileID: 6547832209798727533}
   m_speed: 5
   m_distance: {x: 6.475, y: 3.64}
 --- !u!54 &5246008342819760297

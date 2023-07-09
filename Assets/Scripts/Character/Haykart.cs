@@ -23,6 +23,9 @@ public class Haykart : MonoBehaviour
     [SerializeField] private int m_lifeAtStart = 2;
     [SerializeField] private int m_maxLife = 6;
     [SerializeField] private List<float> m_speedPerLife;
+    [SerializeField] private List<float> m_foinScalePerLife;
+    [SerializeField] private Transform m_foin;
+    
     [SerializeField] private float m_speed = 5.0f;
     [SerializeField] private Vector2 m_distance;
     private float speed => (m_speed * m_speedPerLife[m_currentLife]);
@@ -92,6 +95,7 @@ public class Haykart : MonoBehaviour
             {
                 m_currentLife--;
                 m_chain = 0;
+                m_foin.localScale = new Vector3(1.0f, 1.0f, m_foinScalePerLife[m_currentLife]);
                 OnHitObstacle?.Invoke(m_currentLife);
                 return;
             }
@@ -120,6 +124,7 @@ public class Haykart : MonoBehaviour
                 if (math.floor((m_score + 5 * m_chain) / 100.0) > math.floor(m_score / 100.0) && m_currentLife < m_maxLife)
                 {
                     m_currentLife++;
+                    m_foin.localScale = new Vector3(1.0f, 1.0f, m_foinScalePerLife[m_currentLife]);
                     OnAddLife?.Invoke(m_currentLife);
                 }
                 
