@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{968eb3c5-4e8a-4d2d-88cf-3607eeae2f43}">
+		<property name="assetPath">
+			<value>GTMK5_Ending.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>12.75</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5b8633ef-d9ae-440c-a4b6-ff74e731bdc3}</destination>
+		</relationship>
+	</object>
+</objects>
