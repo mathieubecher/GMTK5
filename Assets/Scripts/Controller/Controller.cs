@@ -53,4 +53,14 @@ public class Controller : MonoBehaviour
             OnSpace?.Invoke();
         }
     }
+
+    private bool mute = false;
+    public void ReadMuteInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+        {
+            MusicManager.SetVolume(mute? 1.0f : 0.0f);
+            mute = !mute;
+        }
+    }
 }

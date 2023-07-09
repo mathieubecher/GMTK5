@@ -491,8 +491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -240}
-  m_SizeDelta: {x: 260, y: 250}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &332192895
 MonoBehaviour:
@@ -514,8 +514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aaaaa aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa aaaaa
-    aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa
+  m_text: Fall on the human assassin for your final landing.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
   m_sharedMaterial: {fileID: -196392576326020864, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
@@ -542,8 +541,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -782,7 +781,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 224, y: 176}
+  m_SizeDelta: {x: 256, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349942251
 MonoBehaviour:
@@ -1100,7 +1099,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 224, y: 176}
+  m_SizeDelta: {x: 256, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &405180389
 MonoBehaviour:
@@ -1877,7 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1902,6 +1901,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959216175}
   m_CullTransparentMesh: 1
+--- !u!1001 &1042817593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491603869314121200, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677168968978751667, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a63129cff5d1474db0ec61d675c3634, type: 3}
 --- !u!114 &1080783643 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7317995102785829709, guid: abf13f2eb1f98374b8e1bcd0838b8293, type: 3}
@@ -2467,7 +2527,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 224, y: 176}
+  m_SizeDelta: {x: 256, y: 176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612805324
 MonoBehaviour:
@@ -3214,8 +3274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -240}
-  m_SizeDelta: {x: 260, y: 250}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1876782494
 MonoBehaviour:
@@ -3237,8 +3297,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aaaaa aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa aaaaa
-    aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa
+  m_text: 'Use WAZD (or ZQSD) to move around and avoid obstacles.
+
+    
+
+    Failing
+    will make you loose some hay, which is your life.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
   m_sharedMaterial: {fileID: -196392576326020864, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
@@ -3265,8 +3329,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3502,8 +3566,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -240}
-  m_SizeDelta: {x: 260, y: 250}
+  m_AnchoredPosition: {x: 0, y: -250}
+  m_SizeDelta: {x: 270, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1975092865
 MonoBehaviour:
@@ -3525,8 +3589,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aaaaa aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa aaaaa
-    aaaaa aaaa aaa aaaa aaaa aaaaa aaaaa aaaaaaaaaa aaaaa aaaa
+  m_text: "Go through consecutive shiny circles to gain points and obtain more hay.\n
+    \r\nHay will protect you from deadly impact, but will make you move slower."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
   m_sharedMaterial: {fileID: -196392576326020864, guid: 73fad0c8073fd1f4895a748c16650909, type: 2}
@@ -3553,8 +3617,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

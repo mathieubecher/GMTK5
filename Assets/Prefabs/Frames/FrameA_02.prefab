@@ -123,7 +123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -185,15 +185,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.72
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.33
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -255,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -325,7 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.18
+      value: -2.16
       objectReference: {fileID: 0}
     - target: {fileID: 6401948260328644225, guid: 82d74b0083c947d498a72ab394f9743e, type: 3}
       propertyPath: m_LocalRotation.w
