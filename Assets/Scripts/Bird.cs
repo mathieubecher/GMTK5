@@ -11,13 +11,19 @@ public class Bird : MonoBehaviour
     [SerializeField] private List<Texture> m_textures;
 
     private float time = 0.0f;
+
+    void Awake()
+    {
+        transform.position += -transform.forward * (m_speed * (-transform.position.y - 40.0f) / FrameManager.instance.speed);
+    }
+    
     void Update()
     {
         if (GameManager.instance.isGameRunning && Haykart.fall)
         {
             time += Time.deltaTime * m_speed;
             m_renderer.material.mainTexture = m_textures[(int)math.floor(time) % m_textures.Count];
-            if(transform.position.y > -40.0f) transform.position += transform.forward * (m_speed * Time.deltaTime);
+            transform.position += transform.forward * (m_speed * Time.deltaTime);
             
         }
     }
